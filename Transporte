@@ -1,0 +1,34 @@
+package entities;
+
+import java.util.Scanner;
+
+public abstract class Transporte {
+	
+	// Atributos protegidos para que as subclasses possam acessá-los diretamente.
+    protected int capacidadeTanque;
+    protected int numeroPassageiros;
+    protected double preco;
+
+   
+    public Transporte() {
+        this.capacidadeTanque = 0;
+        this.numeroPassageiros = 0;
+        this.preco = 0.0;
+    }
+
+  
+    public Transporte(int capacidadeTanque, int numeroPassageiros, double preco) {
+        this.capacidadeTanque = capacidadeTanque;
+        this.numeroPassageiros = numeroPassageiros;
+        this.preco = preco;
+    }
+
+    // Métodos abstratos que devem ser implementados nas subclasses.
+    public abstract void imprimir();
+    public abstract void entrada(Scanner scanner);
+
+    // Getters e Setters para os atributos protegidos.
+    // (Omitidos para brevidade, mas devem ser incluídos na implementação completa)
+}
+
+
