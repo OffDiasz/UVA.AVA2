@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+import entities.Aviao;
+import entities.Navio;
+import entities.Transporte;
+
+
+public class AppJava {
+    public static void main(String[] args) {
+        // Cria um vetor único de VeiculoTransporte com 4 posições.
+        Transporte[] veiculos = new Transporte[4];
+        
+        // Cria um único objeto Scanner para todas as entradas de dados.
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("--- Cadastro de 2 Avioes ---");
+        // Loop para criar e preencher 2 objetos Aviao.
+        for (int i = 0; i < 2; i++) {
+            System.out.println("\nCadastro do Aviao #" + (i + 1) + ":");
+            veiculos[i] = new Aviao(); // Usa o construtor vazio.
+            veiculos[i].entrada(scanner); // Chama o método de entrada da classe Aviao.
+        }
+
+        System.out.println("\n--- Cadastro de 2 Navios ---");
+        // Loop para criar e preencher 2 objetos Navio.
+        for (int i = 2; i < 4; i++) {
+            System.out.println("\nCadastro do Navio #" + (i - 1) + ":");
+            veiculos[i] = new Navio(); // Usa o construtor vazio.
+            veiculos[i].entrada(scanner); // Chama o método de entrada da classe Navio.
+        }
+
+        System.out.println("\n--- Exibindo todos os Veiculos Cadastrados ---");
+        // Loop para exibir os dados de todos os 4 objetos.
+        for (int i = 0; i < 4; i++) {
+            System.out.println();
+            veiculos[i].imprimir();
+        }
+
+        scanner.close(); // Fecha o Scanner para liberar os recursos.
+    }
+}
