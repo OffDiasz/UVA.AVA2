@@ -1,0 +1,132 @@
+package entities;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Navio extends Transporte{
+
+	    // Atributos específicos da classe Navio
+	    private String nome;
+	    private int numeroTripulantes;
+	    private String dataLancamento;
+
+	    // Construtores
+	    
+	
+	    public Navio() {
+	        super(); // Chama o construtor vazio da superclasse VeiculoTransporte
+	        this.nome = "";
+	        this.numeroTripulantes = 0;
+	        this.dataLancamento = "";
+	    }
+	    
+	  
+	    public Navio(String nome, String dataLancamento) {
+	        this(); // Chama o construtor vazio da própria classe
+	        this.nome = nome;
+	        this.dataLancamento = dataLancamento;
+	    }
+	    
+	   
+	    public Navio(int capacidadeTanque, int numeroPassageiros, double preco) {
+	        super(capacidadeTanque, numeroPassageiros, preco);
+	        this.nome = "";
+	        this.numeroTripulantes = 0;
+	        this.dataLancamento = "";
+	    }
+	    
+	  
+	    public Navio(String nome, int capacidadeTanque, int numeroPassageiros, int numeroTripulantes, double preco, String dataLancamento) {
+	        super(capacidadeTanque, numeroPassageiros, preco); // Chama o construtor com parâmetros da superclasse
+	        this.nome = nome;
+	        this.numeroTripulantes = numeroTripulantes;
+	        this.dataLancamento = dataLancamento;
+	    }
+	    
+	   
+	    public Navio(int capacidadeTanque, int numeroPassageiros, double preco, String nome) {
+	        super(capacidadeTanque, numeroPassageiros, preco);
+	        this.nome = nome;
+	        this.numeroTripulantes = 0;
+	        this.dataLancamento = "";
+	    }
+
+	    // Métodos
+
+	 
+	    @Override
+	    public void entrada(Scanner scanner) {
+	        while (true) {
+	            try {
+	                System.out.print("Digite o nome do navio: ");
+	                this.nome = scanner.nextLine();
+	                
+	                System.out.print("Digite a capacidade do tanque (inteiro): ");
+	                this.capacidadeTanque = scanner.nextInt();
+	                
+	                System.out.print("Digite o numero de passageiros (inteiro): ");
+	                this.numeroPassageiros = scanner.nextInt();
+	                
+	                System.out.print("Digite o numero de tripulantes (inteiro): ");
+	                this.numeroTripulantes = scanner.nextInt();
+	                
+	                System.out.print("Digite o preco (real): ");
+	                this.preco = scanner.nextDouble();
+	                
+	                scanner.nextLine(); // Consome a nova linha pendente
+	                System.out.print("Digite a data de lancamento: ");
+	                this.dataLancamento = scanner.nextLine();
+	                break;
+	            } catch (InputMismatchException e) {
+	                System.out.println("Erro: Tipo de dado invalido. Por favor, insira um valor correto.");
+	                scanner.nextLine();
+	            }
+	        }
+	    }
+
+	  
+	    @Override
+	    public void imprimir() {
+	        System.out.println("--- Dados do Navio ---");
+	        System.out.println("Nome: " + this.nome);
+	        System.out.println("Capacidade do Tanque: " + this.capacidadeTanque + " L");
+	        System.out.println("Numero de Passageiros: " + this.numeroPassageiros);
+	        System.out.println("Numero de Tripulantes: " + this.numeroTripulantes);
+	        System.out.println("Preco: R$" + String.format("%.2f", this.preco));
+	        System.out.println("Data de Lancamento: " + this.dataLancamento);
+	    }
+	    
+	    
+	    public double passageirosPorTripulantes() {
+	        if (this.numeroTripulantes > 0) {
+	            return (double) this.numeroPassageiros / this.numeroTripulantes;
+	        }
+	        return 0.0;
+	    }
+
+	    // Getters e Setters
+	    public String getNome() {
+	        return nome;
+	    }
+
+	    public void setNome(String nome) {
+	        this.nome = nome;
+	    }
+
+	    public int getNumeroTripulantes() {
+	        return numeroTripulantes;
+	    }
+
+	    public void setNumeroTripulantes(int numeroTripulantes) {
+	        this.numeroTripulantes = numeroTripulantes;
+	    }
+
+	    public String getDataLancamento() {
+	        return dataLancamento;
+	    }
+
+	    public void setDataLancamento(String dataLancamento) {
+	        this.dataLancamento = dataLancamento;
+	    }
+	}
+
