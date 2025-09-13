@@ -1,0 +1,74 @@
+package entities;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Aviao extends Transporte {
+
+	private String prefixo;
+	private String dataRevisao;
+	
+	public Aviao(){
+	}
+
+	public Aviao(int capacidadeTanque, int numeroPassageiros, double preco, String prefixo, String dataRevisao) {
+		super(capacidadeTanque, numeroPassageiros, preco);
+		this.prefixo = prefixo;
+		this.dataRevisao = dataRevisao;
+	}
+	
+	
+     // Método para entrada de dados do avião com tratamento de exceções.
+     
+    @Override
+    public void entrada(Scanner scanner) {
+        while (true) { 
+            try {
+                System.out.print("Digite o prefixo do avião: ");
+                this.prefixo = scanner.nextLine();
+                
+                System.out.print("Digite a capacidade do tanque (inteiro): ");
+                this.capacidadeTanque = scanner.nextInt();
+
+                System.out.print("Digite o numero de passageiros (inteiro): ");
+                this.numeroPassageiros = scanner.nextInt();
+
+                System.out.print("Digite o preco (real): ");
+                this.preco = scanner.nextDouble();
+                
+                scanner.nextLine(); // Consome a nova linha pendente
+
+                System.out.print("Digite a data de revisao: ");
+                this.dataRevisao = scanner.nextLine();
+                break; // Sai do loop se a entrada for bem-sucedida
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Entrada de dado invalida. Por favor, insira um valor do tipo correto.");
+                scanner.nextLine(); // Limpa o buffer do scanner
+            }
+        }
+    }
+	
+    // Exibe os dados do objeto avião.
+    
+   @Override
+   public void imprimir() {
+       System.out.println("--- Dados do Aviao ---");
+       System.out.println("Prefixo: " + this.prefixo);
+       System.out.println("Capacidade do Tanque: " + this.capacidadeTanque + " L");
+       System.out.println("Numero de Passageiros: " + this.numeroPassageiros);
+       System.out.println("Preco: R$" + String.format("%.2f", this.preco));
+       System.out.println("Data de Revisao: " + this.dataRevisao);
+   }
+   
+   
+     //Reajusta o preco do aviao com base em um percentual.
+    
+   public void reajustarPreco(double percentual) {
+       this.preco += this.preco * (percentual / 100.0);
+   }
+}
+
+    
+    
+	
+
