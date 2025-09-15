@@ -86,8 +86,7 @@ public class Navio extends Transporte{
 
 	  
 	    @Override
-	    public void imprimir() {
-	        System.out.println("--- Dados do Navio ---");
+	    public void imprimir() { 
 	        System.out.println("Nome: " + this.nome);
 	        System.out.println("Capacidade do Tanque: " + this.capacidadeTanque + " L");
 	        System.out.println("Numero de Passageiros: " + this.numeroPassageiros);
@@ -129,4 +128,3 @@ public class Navio extends Transporte{
 	        this.dataLancamento = dataLancamento;
 	    }
 	}
-
