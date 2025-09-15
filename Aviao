@@ -52,13 +52,13 @@ public class Aviao extends Transporte {
     
    @Override
    public void imprimir() {
-       System.out.println("--- Dados do Aviao ---");
        System.out.println("Prefixo: " + this.prefixo);
        System.out.println("Capacidade do Tanque: " + this.capacidadeTanque + " L");
        System.out.println("Numero de Passageiros: " + this.numeroPassageiros);
        System.out.println("Preco: R$" + String.format("%.2f", this.preco));
        System.out.println("Data de Revisao: " + this.dataRevisao);
-   }
+       }
+  
    
    
      //Reajusta o preco do aviao com base em um percentual.
@@ -71,4 +71,3 @@ public class Aviao extends Transporte {
     
     
 	
-
